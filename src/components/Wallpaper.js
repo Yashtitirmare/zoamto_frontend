@@ -16,14 +16,14 @@ export default class Wallpaper extends Component {
 
   componentDidMount(){
     //call api here
-    fetch('http://localhost:3038/location',{method:'GET'})
+    fetch('https://zomato-frontend-yash.herokuapp.com/location',{method:'GET'})
     .then(response=>response.json())
     .then(data=>this.setState({locations:data.data}))
   }
 
   fetchRestaurants = (event)=>{
     console.log(event.target.value)
-    fetch(`http://localhost:3038/restaurant/${event.target.value}`,{method:'GET'})
+    fetch(`https://zomato-frontend-yash.herokuapp.com/restaurant/${event.target.value}`,{method:'GET'})
     .then(response=>response.json())
     .then(data=>{this.setState({restaurants:data.data});console.log(data.data)})
   }
