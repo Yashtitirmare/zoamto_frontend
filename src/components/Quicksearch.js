@@ -10,7 +10,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    fetch("https://zomato-backend-yash.herokuapp.com//mealtype", { method: "GET" })
+    fetch("https://zomato-backend-yash.herokuapp.com/mealtype", { method: "GET" })
       .then((response) => response.json())
       .then((data) => this.setState({ mealtypes: data.data }));
   }

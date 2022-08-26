@@ -17,13 +17,13 @@ export default function RestaurantDetail() {
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(()=>{
-    fetch(`https://zomato-backend-yash.herokuapp.com//restaurant/details/${rName}`,{method:'GET'})
+    fetch(`https://zomato-backend-yash.herokuapp.com/restaurant/details/${rName}`,{method:'GET'})
     .then(response=>response.json())
     .then(data=>setRestaurant(data.data))
   },[])
   
   const fetchMenu = ()=>{
-    fetch(`https://zomato-backend-yash.herokuapp.com//menu/${rName}`,{method:'GET'})
+    fetch(`https://zomato-backend-yash.herokuapp.com/menu/${rName}`,{method:'GET'})
     .then(response=>response.json())
     .then(data=>setMenu(data.data))
   }
@@ -53,7 +53,7 @@ export default function RestaurantDetail() {
   const openRazorpay=async()=>{
    try{ //create order in razorpay by calling backend API
     let orderData;
-    orderData = await fetch('https://zomato-backend-yash.herokuapp.com//pay',{
+    orderData = await fetch('https://zomato-backend-yash.herokuapp.com/pay',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({amount:totalPrice})
@@ -74,7 +74,7 @@ export default function RestaurantDetail() {
        },
        handler:function(response){
         //call api that would would save transaction id
-        fetch('https://zomato-backend-yash.herokuapp.com//pay/save',{
+        fetch('https://zomato-backend-yash.herokuapp.com/pay/save',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({
