@@ -24,7 +24,7 @@ export default function Filter() {
 
     useEffect(() => {
         //fetch
-        fetch(`https://zomato-frontend-yash.herokuapp.com/restaurant/filter/${currentPageNo}`, requestOption)
+        fetch(`https://zomato-backend-yash.herokuapp.com//restaurant/filter/${currentPageNo}`, requestOption)
             .then((response) => response.json())
             .then((data) => {
                 setRestaurants(data.data);
@@ -33,7 +33,7 @@ export default function Filter() {
     }, [filter, currentPageNo]);
 
     useEffect(() => {
-        fetch("https://zomato-frontend-yash.herokuapp.com/location", { method: 'GET' })
+        fetch("https://zomato-backend-yash.herokuapp.com//location", { method: 'GET' })
             .then((response) => response.json())
             .then((data) => {
                 setRestaurantList(data.data)
